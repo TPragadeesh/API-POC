@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Second page</title>
+</head>
+
+<body>
+  <h1>We are in next page</h1>
+  <span id="express-assets"></span>
+   <a href="index.html">Back</a>  
+   
+</body>
+ <script>
+     fetch('http://localhost:3000/next')
+      .then((response) => {
+        return response.text();
+      }).then(body => {
+        document.getElementById("express-assets").innerText = body;
+      });
+
+ 
+	  
+  </script>
+
+</html>

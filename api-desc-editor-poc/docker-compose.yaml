@@ -1,0 +1,27 @@
+version: "1"
+services:
+  frontend:
+    build:
+      context: ./api-desc-editor-react
+      dockerfile: Dockerfile
+    container_name: react-poc-container
+    image: react-poc:1
+    ports:
+      - 5173:5173
+    networks: 
+      - studio
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: ./spectral-api-node-express
+      dockerfile: Dockerfile
+    container_name: spectral-poc-container
+    image: spectral-poc:1
+    ports:
+      - 3000:3000
+    networks:
+      - studio
+networks:
+  studio:
+    driver: bridge

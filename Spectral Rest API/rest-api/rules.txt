@@ -1,0 +1,11 @@
+{
+  "api-keys-in-headers": {
+    "description": "Avoid transmitting API keys in headers for security reasons.",
+    "given": "$.components.headers.*",
+    "then": {
+      "field": "x-api-key",
+      "function": "truthy"
+    },
+    "severity": "error"
+  }
+}
